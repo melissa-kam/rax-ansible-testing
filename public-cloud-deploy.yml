@@ -13,4 +13,10 @@
         key_name: "{{ key_name }}"
         group: "{{ group }}"
         wait: yes
+        wait_timeout: 900
     register: rax
+
+# Show all instances
+- name: show created instances
+  debug: var="rax"
+
