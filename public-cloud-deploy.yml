@@ -6,11 +6,11 @@
   - name: Provision a set of instances
     local_action:
         module: rax
-        name: "{{ rax_name }}"
-        flavor: "{{ rax_flavor }}"
-        image: "{{ rax_image }}"
-        count: "{{ rax_count }}"
-        key_name: "mkam-pub"
+        name: "{{ name }}"
+        flavor: "{{ flavor }}"
+        image: "{{ image }}"
+        count: "{{ count }}"
+        key_name: "{{ key_name }}"
         group: "{{ group }}"
         wait: yes
     register: rax
