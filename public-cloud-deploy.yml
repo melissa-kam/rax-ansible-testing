@@ -15,8 +15,8 @@
         wait: yes
         wait_timeout: 900
     register: rax
-
-# Show all instances
-- name: show created instances
-  debug: var="rax"
+  
+  # Show all instances
+  - name: show created instances
+    debug: var="rax"
 
