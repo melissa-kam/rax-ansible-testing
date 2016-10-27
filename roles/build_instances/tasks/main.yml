@@ -14,5 +14,5 @@
 
   - name: Show created instances
     debug: msg=" {{ item.name }} {{ item.id }} {{ item.accessIPv4 }}"
-    with_items: {{ rax.success }}
+    with_items: "{{ rax.success }}"
     when: rax.action == 'create'

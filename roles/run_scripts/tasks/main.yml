@@ -11,13 +11,42 @@
       version: master
       dest: /root/openstack-ansible-ops
 
-  - name: Run setup script
+  - name: Run setup host script
     command: source setup-host.sh
     args:
         executable: /bin/bash
         chdir: /root/openstack-ansible-ops/multi-node-aio
     register: result
 
-  - name: Readable output of setup script
+  - name: Readable output of setup host script
     debug: var=result.stdout.split('\n')
 
+  - name: Run setup cobbler script
+    command: source setup-cobbler.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of setup cobbler script
+    debug: var=result.stdout.split('\n')
+
+  - name: Run setup virsh net script
+    command: source setup-virsh-net.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of virsh net setup script
+    debug: var=result.stdout.split('\n')
+
+  - name: Run deploy vms script
+    command: source deploy-vms.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of deploy vms script
+    debug: var=result.stdout.split('\n')
