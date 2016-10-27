@@ -4,7 +4,7 @@
         module: rax_facts
         name: "{{ name }}"
 
-  - name: Show IP of server with given name, fail if no such server exists
+  - name: Show IP of server with given name, fail if no such server exists in region
     debug: var=rax_accessipv4
     failed_when: rax_accessipv4 is undefined
 

@@ -10,6 +10,7 @@
         group: "{{ group }}"
         wait: yes
         wait_timeout: 900
+        auto_increment: no
     register: rax
 
   - name: Show created instances
