@@ -1,0 +1,23 @@
+---
+  - name: Install Git
+    apt:
+      pkg: git
+      state: installed
+      update_cache: no
+
+  - name: Download repository with setup scripts
+    git:
+      repo: https://github.com/rcbops-qe/openstack-ansible-ops.git
+      version: master
+      dest: /root/openstack-ansible-ops
+
+  - name: Run setup script
+    command: source setup-host.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of setup script
+    debug: var=result.stdout.split('\n')
+

@@ -2,21 +2,10 @@
 - hosts: localhost
   connection: local
   gather_facts: False
-  tasks:
-  - name: Provision a set of instances
-    local_action:
-        module: rax
-        name: "{{ name }}"
-        flavor: "{{ flavor }}"
-        image: "{{ image }}"
-        count: "{{ count }}"
-        key_name: "{{ key_name }}"
-        group: "{{ group }}"
-        wait: yes
-        wait_timeout: 900
-    register: rax
-  
-  # Show all instances
-  - name: show created instances
-    debug: var="rax"
+  roles:
+    - build_instances
+    - get_instance_by_name
 
+- hosts: cloud_instances
+  roles:
+    - run_scripts
