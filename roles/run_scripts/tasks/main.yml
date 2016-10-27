@@ -3,7 +3,7 @@
     apt:
       pkg: git
       state: installed
-      update_cache: no
+      update_cache: yes
 
   - name: Download repository with setup scripts
     git:
