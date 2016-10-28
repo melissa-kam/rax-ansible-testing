@@ -1,0 +1,5 @@
+---
+  - name: Get facts about servers with a given name
+    copy:
+      src: openstack-ansible-ops/multi-node-aio
+      dest: /root/openstack-ansible-ops
