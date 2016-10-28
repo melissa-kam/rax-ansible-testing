@@ -10,12 +10,14 @@
 - hosts: localhost
   connection: local
   gather_facts: False
+  tags:
+    - always
   roles:
     - get_instance_by_name
 
 - hosts: cloud_instances
   roles:
-    - copy_scripts_to_host
+    - { role: copy_scripts_to_host,  tags: [ 'always' ] }
     - { role: setup_host,  tags: [ 'host' ] }
     - { role: setup_cobbler,  tags: [ 'cobbler' ] }
     - { role: setup_virsh_net,  tags: [ 'network' ] }
