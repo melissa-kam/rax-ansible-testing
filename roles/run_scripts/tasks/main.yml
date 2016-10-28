@@ -3,13 +3,14 @@
     apt:
       pkg: git
       state: installed
-      update_cache: yes
+      update_cache: no
 
   - name: Download repository with setup scripts
     git:
       repo: https://github.com/rcbops-qe/openstack-ansible-ops.git
       version: master
       dest: /root/openstack-ansible-ops
+      force: yes
 
   - name: Run setup host script
     command: source setup-host.sh
@@ -22,7 +23,7 @@
     debug: var=result.stdout.split('\n')
 
   - name: Run setup cobbler script
-    command: source setup-cobbler.sh
+    shell: SSHKEY=$(cat /root/.ssh/id_rsa.pub) && source setup-cobbler.sh
     args:
         executable: /bin/bash
         chdir: /root/openstack-ansible-ops/multi-node-aio
