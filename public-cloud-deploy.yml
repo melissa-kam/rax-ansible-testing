@@ -15,4 +15,9 @@
 
 - hosts: cloud_instances
   roles:
-    - run_scripts
+    - copy_scripts_to_host
+    - { role: setup_host,  tags: [ 'host' ] }
+    - { role: setup_cobbler,  tags: [ 'cobbler' ] }
+    - { role: setup_virsh_net,  tags: [ 'network' ] }
+    - { role: deploy_vms,  tags: [ 'vms' ] }
+    - { role: deploy_osa_setup,  tags: [ 'osa' ] }
