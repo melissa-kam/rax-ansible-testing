@@ -20,6 +20,6 @@
     - { role: copy_scripts_to_host,  tags: [ 'always' ] }
     - { role: setup_host,  tags: [ 'host' ] }
     - { role: setup_cobbler,  tags: [ 'cobbler' ] }
-    - { role: setup_virsh_net,  tags: [ 'network' ] }
+    - { role: setup_virsh_net,  tags: [ 'networks' ] }
     - { role: deploy_vms,  tags: [ 'vms' ] }
     - { role: deploy_osa_setup,  tags: [ 'osa' ] }
