@@ -1,5 +1,5 @@
 ---
-  - name: Get facts about servers with a given name
+  - name: Copy OpenStack-Ansible Multi-Node All In One scripts to host
     copy:
-      src: openstack-ansible-ops/multi-node-aio
+      src: ../../../../openstack-ansible-ops/multi-node-aio
       dest: /root/openstack-ansible-ops
