@@ -1,0 +1,10 @@
+---
+  - name: Run setup virsh net script
+    command: source setup-virsh-net.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of virsh net setup script
+    debug: var=result.stdout.split('\n')

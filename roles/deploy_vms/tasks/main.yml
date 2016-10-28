@@ -1,0 +1,10 @@
+---
+  - name: Run deploy vms script
+    command: source deploy-vms.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of deploy vms script
+    debug: var=result.stdout.split('\n')

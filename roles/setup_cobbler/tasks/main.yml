@@ -1,0 +1,10 @@
+---
+  - name: Run setup cobbler script
+    shell: SSHKEY=$(cat /root/.ssh/id_rsa.pub) && source setup-cobbler.sh
+    args:
+        executable: /bin/bash
+        chdir: /root/openstack-ansible-ops/multi-node-aio
+    register: result
+
+  - name: Readable output of setup cobbler script
+    debug: var=result.stdout.split('\n')
