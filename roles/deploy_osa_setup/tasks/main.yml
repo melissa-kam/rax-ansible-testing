@@ -1,6 +1,6 @@
 ---
   - name: Runs the deploy-osa script without the run OpenStack Ansible step
-    shell: RUN_OSA=false && source deploy-osa.sh
+    shell: RUN_OSA=false && OSA_BRANCH={{ osa_branch }} && source deploy-osa.sh
     args:
         executable: /bin/bash
         chdir: /root/openstack-ansible-ops/multi-node-aio
