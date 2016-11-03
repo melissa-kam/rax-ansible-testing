@@ -17,7 +17,7 @@
 
 - hosts: cloud_instances
   roles:
-    - { role: copy_scripts_to_host,  tags: [ 'always' ] }
+    - { role: clone_setup_scripts,  tags: [ 'always' ] }
     - { role: setup_host,  tags: [ 'host' ] }
     - { role: setup_cobbler,  tags: [ 'cobbler' ] }
     - { role: setup_virsh_net,  tags: [ 'networks' ] }
