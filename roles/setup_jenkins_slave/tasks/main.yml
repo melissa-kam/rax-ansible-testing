@@ -14,7 +14,7 @@
 
   - name: Run setup slave script
     environment:
-      JENKINS_SLAVE: "{{ name }}"
+      JENKINS_SLAVE: "{{ slave_name }}"
       JENKINS_USERNAME: "{{ github_username }}"
       JENKINS_TOKEN: "{{ github_token }}"
     shell: ./scripts/jenkins-slave/setup.sh
