@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tags:
+    - build
+  roles:
+    - build_instances
+
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  roles:
+    - get_instance_by_name
+
+- hosts: cloud_instances
+  roles:
+    - setup_jenkins_slave
